@@ -1,0 +1,24 @@
+__pycache__/
+.coverage
+.cache
+.DS_Store
+.env_local
+.env_docker
+.idea/
+.vagrant
+.vscode/
+*.log
+*.pyc
+static/
+ansible_playbook.retry
+.coverage_html/
+default_db.sqlite
+Pipfile
+Pipfile.lock
+static_files/css/*.css
+vmdata/
+node_modules/
+coverage/
+
+# Translations
+*.mo
