@@ -14,12 +14,13 @@ django sso service poc
     
 1. Configure /etc/hosts  add the following:
 
-
-    127.0.0.1       site1.local
-    127.0.0.1       site2.local
-    127.0.0.1       sso.mymedia.local
-    127.0.0.1       site1.mymedia.local
-    127.0.0.1       site2.mymedia.local
+```
+127.0.0.1       site1.local
+127.0.0.1       site2.local
+127.0.0.1       sso.mymedia.local
+127.0.0.1       site1.mymedia.local
+127.0.0.1       site2.mymedia.local
+```
 
 1. Run the server
 
