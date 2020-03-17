@@ -6,19 +6,30 @@ from django.shortcuts import render
 # from django.urls import reverse
 from django.contrib.sessions.models import Session
 from django.contrib.sessions.backends.db import SessionStore
+from django.views.decorators.csrf import csrf_exempt
 
 from identity.forms import LoginForm
-
+# from django.views.decorators.clickjacking import xframe_options_sameorigin
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 import logging
 
 
+def home(request):
+    return render(request, 'home.html')
+
+
+@csrf_exempt
+@xframe_options_exempt
+# @xframe_options_sameorigin
 def login(request):
     """
     Login view
+
     :param request: POST.request (form)
     :return: render, response with login template
     """
+    # value = request.COOKIES.get('user_session')
     form = LoginForm(request.POST or None)
 
     response = render(request, 'login.html', {'form': form})

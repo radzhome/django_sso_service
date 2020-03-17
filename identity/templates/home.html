@@ -2,6 +2,38 @@
 
 {% block title %}Home{% endblock %}
 
+{% block foot_scripts %}
+<script>
+    // this runs on parent window
+    console.log('Home js loaded...')
+    window.onmessage = function(e){
+        console.log('data is now ' + e.data.user_session);
+        /*
+        if (e.data == 'hello') {
+            console.log('It works, from home!');
+        } */
+    };
+
+    /* // gets blocked
+    window.document.addEventListener('myCustomEvent', handleEvent, false)
+    function handleEvent(e) {
+        console.log(e.detail) // outputs: {foo: 'bar'}
+    } */
+
+    //let frame = document.getElementById('my-iframe');
+    //frame.contentWindow.postMessage(/*any variable or object here*/, '*');  // # TODO: * could be site1.postmedia.local
+
+</script>
+{% endblock %}
+
+{% block login %}
+<iframe src = "//sso.postmedia.local:8000/login/" width="555" height="200" id="my-iframe">
+    Sorry your browser does not support inline frames.
+</iframe>
+{% endblock %}
+
 {% block content %}
-<a href="{% url 'seo_login' %}">login</a>
+Hello and welcome to the site
+<!--<a href="{% url 'seo_login' %}">login</a>-->
+
 {% endblock %}

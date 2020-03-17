@@ -2,6 +2,53 @@
 
 {% block title %}Login{% endblock %}
 
+{% block head_scripts %}
+<script>
+    // this runs in the iframe
+    var key = 'user_session';
+
+    function getLocalStorageKey(c_name) {
+        return localStorage.getItem(c_name);
+    }
+
+    function setLocalStorageKey(c_name, value) {
+        return localStorage.setItem(c_name, value);
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    var value = getCookie('user_session');
+    // console.log(value);
+    setLocalStorageKey('user_session', value);
+    console.log('user session: ');
+    console.log(getLocalStorageKey(key));
+
+    // This is nice and works!
+    // https://stackoverflow.com/questions/25098021/securityerror-blocked-a-frame-with-origin-from-accessing-a-cross-origin-frame
+    //window.top.postMessage('hello', '*');  // * means cross origin
+    window.top.postMessage({'user_session': value}, '*');  // * means cross origin
+
+    // send an event
+    // Gets blocked with following error
+    // Uncaught DOMException: Blocked a frame with origin "http://sso.postmedia.local:8000" from accessing a cross-origin frame.
+    /*var data = {"user_session": value }
+    console.log(data);
+    var event = new CustomEvent('myCustomEvent', { detail: data })
+    window.parent.document.dispatchEvent(event)*/
+
+
+</script>
+{% endblock %}
+
 {% block content %}
 <h2>Login</h2>
 <form method="post">

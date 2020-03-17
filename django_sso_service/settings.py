@@ -25,7 +25,7 @@ SECRET_KEY = 'r4h6n5hjp#q@0^m2^#+1(klkh^cla7lidmp2(e!qwm6yzi8zfa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['site1.local', 'site2.local', 'sso.postmedia.local']
+ALLOWED_HOSTS = ['site1.local', 'site2.local', 'sso.postmedia.local', 'site1.postmedia.local', 'site2.postmedia.local']
 
 
 # Application definition
