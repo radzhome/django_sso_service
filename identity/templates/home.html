@@ -8,6 +8,9 @@
     console.log('Home js loaded...')
     window.onmessage = function(e){
         console.log('data is now ' + e.data.user_session);
+
+        // lets set to local storage :)
+        localStorage.setItem('user_session', e.data.user_session)
     };
 
 </script>

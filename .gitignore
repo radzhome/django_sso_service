@@ -22,3 +22,6 @@ coverage/
 
 # Translations
 *.mo
+
+db.sqlite3
+local_settings.py
