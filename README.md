@@ -2,7 +2,7 @@
 django sso service poc
 
 
-# TODO: Does not work in safari, iframe does not load
+# TODO: Throws warnings safari, frame msgs throws a warning that msg blocked.
 
 
 ### Setup
