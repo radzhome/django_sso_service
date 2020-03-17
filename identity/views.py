@@ -35,10 +35,14 @@ def login(request):
     response = render(request, 'login.html', {'form': form})
     if request.method == 'POST':
         if form.is_valid():
-            # TODO: Call api to log user in
+            # TODO: Call api to log user in (janrain)
 
             # Create or restore session
-            session = Session.objects.get(pk=request.COOKIES['user_session'])
+            try:
+                session = Session.objects.get(pk=request.COOKIES.get('user_session'))
+            except Session.DoesNotExist:
+                session = None
+
             if not session:
                 max_age = 8 * 24 * 60 * 60  # x days
                 expires = datetime.datetime.strftime(datetime.datetime.utcnow() + datetime.timedelta(seconds=max_age),
@@ -55,7 +59,11 @@ def login(request):
 
             # return redirect(reverse('home'))
     else:
-        session = Session.objects.get(pk=request.COOKIES['user_session'])
+        try:
+            session = Session.objects.get(pk=request.COOKIES.get('user_session'))
+        except Session.DoesNotExist:
+            session = None
+
         if session:
             # TODO: check expire date if valid, if not delete cookie
             # logging.error(session['expires'])
@@ -65,8 +73,10 @@ def login(request):
             logging.error(session.expire_date)
             # logging.error(dir(session))
         else:
-            pass
-            # TODO: delete cookie
+            # delete cookie
+            response.set_cookie('user_session', '')
 
     return response
 
+
+# TODO logout
