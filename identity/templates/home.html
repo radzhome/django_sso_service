@@ -8,20 +8,7 @@
     console.log('Home js loaded...')
     window.onmessage = function(e){
         console.log('data is now ' + e.data.user_session);
-        /*
-        if (e.data == 'hello') {
-            console.log('It works, from home!');
-        } */
     };
-
-    /* // gets blocked
-    window.document.addEventListener('myCustomEvent', handleEvent, false)
-    function handleEvent(e) {
-        console.log(e.detail) // outputs: {foo: 'bar'}
-    } */
-
-    //let frame = document.getElementById('my-iframe');
-    //frame.contentWindow.postMessage(/*any variable or object here*/, '*');  // # TODO: * could be site1.mymedia.local
 
 </script>
 {% endblock %}
@@ -34,6 +21,5 @@
 
 {% block content %}
 Hello and welcome to the site
-<!--<a href="{% url 'seo_login' %}">login</a>-->
 
 {% endblock %}

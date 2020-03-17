@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 
+{% load marktags %}
+
 {% block title %}Login{% endblock %}
 
 {% block head_scripts %}
 <script>
-    // this runs in the iframe
+    // This runs in the iframe
     var key = 'user_session';
 
     function getLocalStorageKey(c_name) {
@@ -27,33 +29,31 @@
     }
 
     var value = getCookie('user_session');
-    // console.log(value);
     setLocalStorageKey('user_session', value);
     console.log('user session: ');
     console.log(getLocalStorageKey(key));
 
     // This is nice and works!
-    // https://stackoverflow.com/questions/25098021/securityerror-blocked-a-frame-with-origin-from-accessing-a-cross-origin-frame
-    //window.top.postMessage('hello', '*');  // * means cross origin
     window.top.postMessage({'user_session': value}, '*');  // * means cross origin
-
-    // send an event
-    // Gets blocked with following error
-    // Uncaught DOMException: Blocked a frame with origin "http://sso.mymedia.local:8000" from accessing a cross-origin frame.
-    /*var data = {"user_session": value }
-    console.log(data);
-    var event = new CustomEvent('myCustomEvent', { detail: data })
-    window.parent.document.dispatchEvent(event)*/
-
 
 </script>
 {% endblock %}
 
 {% block content %}
+
+
+
+{% if not user_session %}
 <h2>Login</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Login</button>
 </form>
+{% else %}
+You user session is: {{ user_session }}. COOKIE - {% cookie 'user_session' %}
+<br>
+<a href="{% url 'sso_logout' %}">logout</a>
+{% endif%}
+
 {% endblock %}

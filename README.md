@@ -21,7 +21,13 @@ django sso service poc
     127.0.0.1       site1.mymedia.local
     127.0.0.1       site2.mymedia.local
 
-1. Browse `http://site1.local:8000/`, try login, see console.
+1. Run the server
+
+
+    python3 manage.py runserver
+
+   
+1. Browse `http://site1.mymedia.local:8000/`, try login, see console.
 
 
 ## References
@@ -35,6 +41,4 @@ https://docs.djangoproject.com/en/3.0/topics/http/sessions/#using-cookie-based-s
 ### Sending data b/w iframe and parent
 * https://stackoverflow.com/questions/25098021/securityerror-blocked-a-frame-with-origin-from-accessing-a-cross-origin-frame
 * https://stackoverflow.com/questions/9153445/how-to-communicate-between-iframe-and-the-parent-site 
-
-
 
