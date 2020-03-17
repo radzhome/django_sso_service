@@ -24,7 +24,11 @@ django sso service poc
 https://docs.djangoproject.com/en/3.0/topics/http/sessions/#using-cookie-based-sessions
 
 ### Local storage b/w domains
-https://levelup.gitconnected.com/share-localstorage-sessionstorage-between-different-domains-eb07581e9384
+* https://levelup.gitconnected.com/share-localstorage-sessionstorage-between-different-domains-eb07581e9384
+
+### Sending data b/w iframe and parent
+* https://stackoverflow.com/questions/25098021/securityerror-blocked-a-frame-with-origin-from-accessing-a-cross-origin-frame
+* https://stackoverflow.com/questions/9153445/how-to-communicate-between-iframe-and-the-parent-site 
 
 
 
