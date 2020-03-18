@@ -4,7 +4,13 @@
 
 {% block title %}Login{% endblock %}
 
-{% block head_scripts %}
+{% block hidden_frame %}
+<iframe id="my-iframe" src="//sso.mymedia.local:8000/hidden/" style=";display:none" hidden="" onload="onMyFrameLoad(this)">
+    Sorry your browser does not support inline frames.
+</iframe>
+{% endblock %}
+
+{% block foot_scripts %}
 <script>
     // This runs in the iframe
     var key = 'user_session';
@@ -28,13 +34,23 @@
         return null;
     }
 
-    var value = getCookie('user_session');
-    setLocalStorageKey('user_session', value);
+    var user_session = getCookie('user_session');
+    setLocalStorageKey('user_session', user_session);
     console.log('user session: ');
     console.log(getLocalStorageKey(key));
 
+    var janrainCaptureToken = getCookie('janrainCaptureToken');
+
+    function onMyFrameLoad() {
+        console.log('myframe is loaded');
+        var myFrame = document.getElementById('my-iframe').contentWindow;
+        myFrame.postMessage({'user_session': user_session, 'janrainCaptureToken': janrainCaptureToken}, '*');
+    };
+
+
     // This is nice and works!
-    window.top.postMessage({'user_session': value}, '*');  // * means cross origin
+    //var frame = document.getElementById('your-frame-id');
+    //frame.contentWindow.postMessage({'user_session': value}, '*');
 
 </script>
 {% endblock %}
@@ -48,12 +64,15 @@
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Login</button>
+  <button type="submit">Login</button><br>
+  Back to <a href="{% url 'home' %}">home</a>
 </form>
 {% else %}
 You user session is: {{ user_session }}. COOKIE - {% cookie 'user_session' %}
 <br>
 <a href="{% url 'sso_logout' %}">logout</a>
+<br>
+<a href="{% url 'home' %}">home</a>
 {% endif%}
 
 {% endblock %}

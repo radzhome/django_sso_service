@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block foot_scripts %}
+<script>
+    console.log('Hidden js loaded...')
+    window.onmessage = function(e){
+        console.log('data is now ' + e.data.user_session);
+
+        // lets set to local storage :)
+        localStorage.setItem('user_session', e.data.user_session)
+        localStorage.setItem('janrainCaptureToken', e.data.janrainCaptureToken)
+    };
+
+</script>
+{% endblock %}
+
+
+
+{% block content %}
+Hidden frame loaded.
+{% endblock %}
