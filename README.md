@@ -2,7 +2,9 @@
 django sso service poc
 
 
-# TODO: Throws warnings safari, frame msgs throws a warning that msg blocked.
+* Firefox did not like password fields in an iframe
+* Safari did not like iframes coming from different domains that had input
+* TODO: Next - need to see if cookies are best way to pass things from server and save to local storage.
 
 
 ### Setup
