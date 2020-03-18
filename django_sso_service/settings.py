@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'django_sso_service.wsgi.application'
 
 # SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 SESSION_ENGINE = 'django.contrib.sessions.backends.file'
-SESSION_COOKIE_NAME = 'user_session'
+SESSION_COOKIE_NAME = 'user_session2'
 SESSION_COOKIE_AGE = 1209600  # 2 weeks
 # SESSION_COOKIE_DOMAIN = None
 
