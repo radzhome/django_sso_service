@@ -47,7 +47,7 @@ def login(request):
 
     # TODO: We need to set cookie each time to get in js?
     response = render(request, 'login.html', {'form': form, 'user_session': session.session_key})
-    response.set_cookie(settings.SESSION_COOKIE_NAME, session_key, max_age=max_age, expires=expires)
+    response.set_cookie('user_session', session_key, max_age=max_age, expires=expires)
 
     return response
 
