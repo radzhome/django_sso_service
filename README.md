@@ -48,3 +48,14 @@ https://levelup.gitconnected.com/share-localstorage-sessionstorage-between-diffe
 ### Session middleware
 https://docs.djangoproject.com/en/2.2/_modules/django/contrib/sessions/middleware/
 
+## Viafoura docs
+* https://documentation.viafoura.com/docs/viafoura-custom-jwt-login
+* https://documentation.viafoura.com/reference#get_-site-id-domain-aliases
+
+### Piano dash
+https://dashboard.tinypass.com/publisher/home
+
+#### Janrain dash, docs
+* https://console.janrain.com/#/login
+* https://learn.akamai.com/en-us/webhelp/identity-cloud/technical-library/GUID-8E88D51A-26C7-4C2E-881F-BF7EB3A71F2E.html
+
