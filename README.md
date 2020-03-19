@@ -4,7 +4,9 @@ django sso service poc
 
 * Firefox did not like password fields in an iframe
 * Safari did not like iframes coming from different domains that had input
-* TODO: Next - need to see if cookies are best way to pass things from server and save to local storage.
+* Server passes cookies which are saved in local storage on login
+* logout - remove cookies + local storage
+* TODO: Next - janrain traditional login working + jwt token saved to local torage
 
 
 ### Setup
@@ -12,7 +14,7 @@ django sso service poc
 1. Setup django:
 
 
-    pip install django
+    pip install -r requirements.txt
     
 1. Configure /etc/hosts  add the following:
 
@@ -48,12 +50,14 @@ https://levelup.gitconnected.com/share-localstorage-sessionstorage-between-diffe
 ### Session middleware
 https://docs.djangoproject.com/en/2.2/_modules/django/contrib/sessions/middleware/
 
-## Viafoura docs
+## Viafoura dash, docs
+* https://auth.viafoura.co/login?response_type=code&scope=56696166-6f75-7261-0000-000000000000&site=0&client_id=4499c2bf-9a85-4e9f-b875-e23e352da524&redirect_uri=https%3A%2F%2Fadmin.viafoura.co%2Foauth2%2Fcode&state=pdp959cc5shems96hfppdtd08h.admin
 * https://documentation.viafoura.com/docs/viafoura-custom-jwt-login
 * https://documentation.viafoura.com/reference#get_-site-id-domain-aliases
 
-### Piano dash
-https://dashboard.tinypass.com/publisher/home
+### Piano dash, docs
+* https://dashboard.tinypass.com/publisher/home
+* https://docs.piano.io/implementing-janrain/
 
 #### Janrain dash, docs
 * https://console.janrain.com/#/login
